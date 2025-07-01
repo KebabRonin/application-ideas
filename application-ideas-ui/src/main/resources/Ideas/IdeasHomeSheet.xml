@@ -72,5 +72,24 @@ $xwiki.ssx.use("Ideas.IdeasClass")
 #set ($columns = ['doc.fullName', 'nbvotes','nbagainst','doc.title', 'nbestimate','status','priority','assignement','doc.date', 'doc.author', '_actions'])
 #livetable('ideas-home-livetable' $columns $columnsProperties $options)
 #end
-{{/velocity}}</content>
+{{/velocity}}
+
+{{liveData
+  id="ideas-home-livedata"
+  properties="doc.fullName,nbvotes,nbagainst,doc.title,nbestimate,status,priority,assignement,doc.date,doc.author,_actions"
+  showPageSizeDropdown="false"
+  source="liveTable"
+  sourceParameters="className=Ideas.IdeasClass&amp;translationPrefix=ideas.livetable."}}
+{
+  "meta": {
+    "propertyDescriptors": [
+      {
+        "id": "doc.fullName",
+        "styleName": "hidden"
+      }
+    ]
+  }
+}
+{{/liveData}}
+</content>
 </xwikidoc>

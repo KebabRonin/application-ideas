@@ -561,7 +561,8 @@
     }
     // The vote is cast from the livetable of Ideas.Webhome
     if (xm.document === 'Ideas.WebHome') {
-      docName = button.parent().siblings('.doc_fullName').text();
+      // TODO: add case for card and table view.
+      docName = button.closest('td').siblings("[data-title='doc.fullName']").first().text().trim();
     }
 
     if (docName != '') {
@@ -788,6 +789,12 @@
   opacity: 0.5;
 }
 #ideas-home-livetable .xwiki-livetable-display-body tr td:first-child {
+  display: none;
+}
+#ideas-home-livedata .xwiki-livedata tr td:first-child {
+  display: none;
+}
+#ideas-home-livedata .xwiki-livedata thead tr th:first-child {
   display: none;
 }</code>
     </property>
